@@ -1,0 +1,203 @@
+:root {
+  --color1: rgb(236, 235, 235);
+  --color2: pink;
+  --color3: rgb(84, 84, 84);
+  --color4: rgb(25, 25, 25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(./assets/img/bg.jpg) center/cover;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  background: rgba(0, 0, 0, 0.509);
+  width: calc(100% - 50px);
+  padding: 20px 20px 6px;
+  position: relative;
+  box-shadow: 0px 2px 5px black;
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+}
+
+.card:before {
+  content: "\210B";
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 2.4rem;
+}
+h1 {
+  margin-bottom: 24px;
+  position: relative;
+}
+h1:after {
+  content: "";
+  position: absolute;
+  background: var(--color1);
+  left: 50%;
+  height: 1px;
+  width: 100%;
+  bottom: -14px;
+  transform: translateX(-50%) scaleX(0);
+  animation: h1anim 2s ease-in-out forwards;
+}
+@keyframes h1anim {
+  100% {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.polygon-container {
+  filter: drop-shadow(-1px 20px 3px var(--color1));
+  place-self: center;
+}
+
+.polygon {
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  background: linear-gradient(120deg, var(--color1) 59%, var(--color2) 100%);
+  height: 100px;
+  width: 100px;
+}
+.polygon:after {
+  content: "Un";
+  position: absolute;
+  color: black;
+  font-size: 1em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 90px;
+}
+
+.checkbox-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0px 10px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label {
+  background: green;
+  color: black;
+  transform: scale(1.1);
+}
+
+label {
+  cursor: pointer;
+  border: 1px solid grey;
+  background: var(--color3);
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.5s;
+  user-select: none;
+}
+
+label:hover {
+  animation: label1 1s infinite linear;
+}
+@keyframes label1 {
+  50% {
+    transform: scale(1.4);
+  }
+  1z00 {
+    transform: scale(1) r;
+  }
+}
+.email {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.email input {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  padding: 10px;
+  transition: 0.3s;
+  text-align: center;
+  font-size: 1.1rem;
+  outline: none;
+  /*border: none;*/
+  min-width: 180px;
+  max-width: 300px;
+  width: 35%;
+}
+
+input[type="text"]:focus {
+  background: transparent;
+  border: 1px solid var(--color2);
+}
+
+input[type="text"]::placeholder {
+  color: green;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+button {
+  display: block;
+  cursor: pointer;
+  border-radius: 150px;
+  background: var(--color2);
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: auto;
+  transition: 0.4s;
+}
+
+button:hover {
+  letter-spacing: 3px;
+}
+
+button:active {
+  transform: scale(1.1);
+}
+
+button:hover + a,
+a:hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+a {
+  color: var(--color2);
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+}
+
+a:visited {
+  color: var(--color1);
+}
